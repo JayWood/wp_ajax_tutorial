@@ -8,11 +8,12 @@ Author: Anonymous
 Author URI: http://#
 */
 
-class WebDev {
+class WDS_Shortcode_Ajax_Handler {
 	function hooks(){
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'wp_ajax_webdev', array( $this, 'handle_ajax' ) );
 		add_action( 'wp_ajax_nopriv_webdev', array( $this, 'handle_ajax' ) );
+		
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		add_shortcode( 'webdev_tut', array( $this, 'shortcode_output' ) );
 	}
@@ -45,5 +46,5 @@ class WebDev {
 		return $output;
 	}
 }
-$web_dev_plugin = new WebDev();
+$web_dev_plugin = new WDS_Shortcode_Ajax_Handler();
 $web_dev_plugin->hooks();
