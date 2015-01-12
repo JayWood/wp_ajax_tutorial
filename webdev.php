@@ -18,8 +18,7 @@ class WebDev {
 	}
 
 	function handle_ajax(){
-		$esc_nonce = esc_attr( $_REQUEST['nonce'] );
-		if( ! wp_verify_nonce( $esc_nonce, 'webdev' ) ){
+		if( ! wp_verify_nonce( $_REQUEST['nonce'], 'webdev' ) ){
 			wp_send_json_error();
 		}
 
